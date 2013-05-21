@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title></title>
+   <script type="text/javascript" src="js/a.js" ></script>
+   <script type="text/javascript">
+      // some inline script
+   </script>
+   <script type="text/javascript" src="js/b.js" ></script>
+   <script type="text/javascript" data-pack-name="skip" src="js/skipped.js"></script>
+   <script type="text/javascript" src="js/c.js" ></script>
+   <script type="text/javascript" src="http://some.cdn.com/lib/1.2.3/file.js" ></script>
+   <script type="text/javascript" src="js/d.js" ></script>
+   <script type="text/javascript" data-pack-name="skip">
+      // totally ignored inline script
+   </script>
+   <script type="text/javascript" src="js/e.js" ></script>
+</head>
+<body>
+
+</body>
+</html>
