@@ -1,0 +1,30 @@
+{
+   "name": "autopacker",
+   "description": "",
+   "version": "0.1.0",
+   "author": "Oleg Elifantiev <oleg@elifantiev.ru>",
+   "contributors": [],
+   "main": "Gruntfile.js",
+   "keywords": [
+      "gruntplugin"
+   ],
+   "repository": {
+
+   },
+   "dependencies": {
+      "xmldom": "0.1.13",
+      "grunt": "0.4.x",
+      "grunt-contrib-concat": "0.3.x"
+   },
+   "devDependencies": {
+      "mocha": "",
+      "istanbul": "",
+      "mocha-istanbul": ""
+   },
+   "scripts": {
+
+   },
+   "engines": {
+      "node": ">=0.8"
+   }
+}

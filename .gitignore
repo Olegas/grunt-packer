@@ -1,0 +1,5 @@
+lib-cov
+tasks-cov
+*.lcov
+.idea
+npm-debug.log
