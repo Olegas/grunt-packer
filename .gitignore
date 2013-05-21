@@ -3,3 +3,4 @@ tasks-cov
 *.lcov
 .idea
 npm-debug.log
+node_modules
