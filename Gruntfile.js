@@ -6,11 +6,17 @@ module.exports = function(grunt) {
       packjs: {
          sample: {
             root: 'sample',
-            output: 'packer'
+            output: 'packer/js'
+         }
+      },
+      packcss: {
+         sample: {
+            root: 'sample',
+            output: 'packer/css'
          }
       }
    });
 
-   grunt.registerTask('default', 'packjs');
+   grunt.registerTask('default', ['packjs', 'packcss']);
 
 };
