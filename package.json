@@ -6,7 +6,7 @@
    "contributors": [],
    "main": "Gruntfile.js",
    "keywords": [
-      "gruntplugin"
+
    ],
    "repository": {
       "url": "https://github.com/Olegas/grunt-packer.git",
