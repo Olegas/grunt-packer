@@ -14,7 +14,8 @@
    },
    "dependencies": {
       "xmldom": "0.1.16",
-      "grunt": "0.4.x"
+      "grunt": "0.4.x",
+      "colors": ""
    },
    "devDependencies": {
       "mocha": "",

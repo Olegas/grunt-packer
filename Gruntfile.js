@@ -6,13 +6,15 @@ module.exports = function(grunt) {
       packjs: {
          sample: {
             root: 'sample',
-            output: 'packer/js'
+            packages: 'packer/js',
+            output: '../out'
          }
       },
       packcss: {
          sample: {
             root: 'sample',
-            output: 'packer/css'
+            packages: 'packer/css',
+            output: '../out'
          }
       }
    });
