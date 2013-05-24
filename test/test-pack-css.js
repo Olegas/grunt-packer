@@ -1,9 +1,9 @@
 var assert = require('assert'),
-    helpers = require((process.env.COV ? '../lib-cov/' : '../lib/') + 'helpers.js'),
+    helpers = require((process.env.COVER == 'gruntpacker' ? '../lib-cov/' : '../lib/') + 'helpers.js'),
     grunt = require('grunt'),
     MockFS = require('mockfs'),
     fs = require('fs'),
-    cssPacker = require((process.env.COV ? '../lib-cov/' : '../lib/') + 'pack-css-task.js')(grunt),
+    cssPacker = require((process.env.COVER == 'gruntpacker' ? '../lib-cov/' : '../lib/') + 'pack-css-task.js')(grunt),
     mfs;
 
 
