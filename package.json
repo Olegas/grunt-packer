@@ -1,7 +1,7 @@
 {
    "name": "grunt-packer",
    "description": "Grunt plugin to automagically concat JS and CSS files found in HTML",
-   "version": "0.1.1",
+   "version": "0.1.2",
    "author": "Oleg Elifantiev <oleg@elifantiev.ru>",
    "contributors": [],
    "main": "Gruntfile.js",
