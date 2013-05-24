@@ -22,7 +22,8 @@
       "coveralls": "",
       "istanbul": "",
       "mocha-istanbul": "",
-      "assert": ""
+      "assert": "",
+      "mockfs": ""
    },
    "scripts": {
       "instrument": "node ./node_modules/.bin/istanbul instrument --output lib-cov --no-compact --variable global.__coverage__ lib",
