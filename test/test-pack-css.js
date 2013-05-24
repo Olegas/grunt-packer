@@ -129,6 +129,20 @@ describe("CSS packer", function(){
       assert.equal('/css/imported2.css', secondUrl);
    });
 
+   it("packing of css file can be skipped by using data-pack-name='skip' on a tag", function(){
+      cssPacker.apply({
+         data: {
+            root: 'test/fixture/2',
+            packages: 'packer/css',
+            output: 'out'
+         }
+      });
+
+      // one file is skipped, so one another will not be packed, so there are no packer dir and html is not changed
+      assert.equal(false, fs.existsSync('./out/packer/css'));
+      assert.equal(false, fs.existsSync('./out/index.html'));
+   });
+
 
    afterEach(function(){
       mfs.umount();
