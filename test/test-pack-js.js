@@ -143,27 +143,15 @@ describe("JS packer", function(){
       assert.equal(false, fs.existsSync('./out/index.html'));
    });*/
 
-   it("external scripts is not packed", function(){
-      jsPacker.apply({
-         data: {
-            root: 'test/fixture/ext-scripts',
-            packages: 'packer/js',
-            output: 'out'
-         }
-      });
 
-      assert.equal(false, fs.existsSync('./out/packer/js'));
-      assert.equal(false, fs.existsSync('./out/index.html'));
-   });
 
-   describe("non-js scripts is ignored", function(){
+   describe("when script is ignored", function(){
 
-      it("by extension (not .js)", function(){
+      it("when it is external", function(){
          jsPacker.apply({
             data: {
-               root: 'test/fixture/non-js-scripts',
+               root: 'test/fixture/ext-scripts',
                packages: 'packer/js',
-               files: 'index.html',
                output: 'out'
             }
          });
@@ -172,18 +160,102 @@ describe("JS packer", function(){
          assert.equal(false, fs.existsSync('./out/index.html'));
       });
 
-      it("by type (not text/javascript)", function(){
+      describe("when it is not JavaScript", function(){
+
+         it("by extension (not .js)", function(){
+            jsPacker.apply({
+               data: {
+                  root: 'test/fixture/non-js-scripts',
+                  packages: 'packer/js',
+                  files: 'index.html',
+                  output: 'out'
+               }
+            });
+
+            assert.equal(false, fs.existsSync('./out/packer/js'));
+            assert.equal(false, fs.existsSync('./out/index.html'));
+         });
+
+         it("by type (not text/javascript)", function(){
+            jsPacker.apply({
+               data: {
+                  root: 'test/fixture/non-js-scripts',
+                  packages: 'packer/js',
+                  files: 'index2.html',
+                  output: 'out'
+               }
+            });
+
+            assert.equal(false, fs.existsSync('./out/packer/js'));
+            assert.equal(false, fs.existsSync('./out/index2.html'));
+         });
+
+      });
+
+      it("when it has data-pack-name='skip'", function(){
          jsPacker.apply({
             data: {
-               root: 'test/fixture/non-js-scripts',
+               root: 'test/fixture/js-common',
                packages: 'packer/js',
-               files: 'index2.html',
+               files: 'index-use-skip.html',
                output: 'out'
             }
          });
 
          assert.equal(false, fs.existsSync('./out/packer/js'));
-         assert.equal(false, fs.existsSync('./out/index2.html'));
+         assert.equal(false, fs.existsSync('./out/index-use-skip.html'));
+      });
+
+   });
+
+   describe("when package is splited", function(){
+
+      it("when scripts are separated by ignored script", function(){
+         jsPacker.apply({
+            data: {
+               root: 'test/fixture/js-common',
+               packages: 'packer/js',
+               files: 'index-package-break.html',
+               output: 'out'
+            }
+         });
+
+         assert.equal(true, fs.existsSync('./out/packer/js'));
+         assert.equal(true, fs.existsSync('./out/index-package-break.html'));
+         assert.equal(4, fs.readdirSync('./out/packer/js').length);
+      });
+
+      describe("when package names are used", function(){
+
+         it("using data-pack-name='some-name' scripts can be packed into common package (p1, p1, p2, p2)", function(){
+            jsPacker.apply({
+               data: {
+                  root: 'test/fixture/js-common',
+                  packages: 'packer/js',
+                  files: 'index-use-names.html',
+                  output: 'out'
+               }
+            });
+
+            assert.equal(true, fs.existsSync('./out/packer/js'));
+            assert.equal(true, fs.existsSync('./out/index-use-names.html'));
+            assert.equal(2, fs.readdirSync('./out/packer/js').length);
+         });
+
+         it("but one can't mix package (p1, p2, p1, p2)", function(){
+            jsPacker.apply({
+               data: {
+                  root: 'test/fixture/js-common',
+                  packages: 'packer/js',
+                  files: 'index-use-names-split.html',
+                  output: 'out'
+               }
+            });
+
+            assert.equal(false, fs.existsSync('./out/packer/js'));
+            assert.equal(false, fs.existsSync('./out/index-use-names.html'));
+         });
+
       });
 
    });
@@ -213,70 +285,6 @@ describe("JS packer", function(){
       assert.equal(true, fc < fd);
 
    });
-
-   it("inline script splits package", function(){
-      jsPacker.apply({
-         data: {
-            root: 'test/fixture/js-common',
-            packages: 'packer/js',
-            files: 'index-inline-break.html',
-            output: 'out'
-         }
-      });
-
-      assert.equal(true, fs.existsSync('./out/packer/js'));
-      assert.equal(true, fs.existsSync('./out/index-inline-break.html'));
-      assert.equal(2, fs.readdirSync('./out/packer/js').length);
-   });
-
-   describe("using package names", function(){
-
-      it("using data-pack-name='some-name' scripts can be packed into common package", function(){
-         jsPacker.apply({
-            data: {
-               root: 'test/fixture/js-common',
-               packages: 'packer/js',
-               files: 'index-use-names.html',
-               output: 'out'
-            }
-         });
-
-         assert.equal(true, fs.existsSync('./out/packer/js'));
-         assert.equal(true, fs.existsSync('./out/index-use-names.html'));
-         assert.equal(2, fs.readdirSync('./out/packer/js').length);
-      });
-
-      it("mixing package names will split package", function(){
-         jsPacker.apply({
-            data: {
-               root: 'test/fixture/js-common',
-               packages: 'packer/js',
-               files: 'index-use-names-split.html',
-               output: 'out'
-            }
-         });
-
-         assert.equal(false, fs.existsSync('./out/packer/js'));
-         assert.equal(false, fs.existsSync('./out/index-use-names.html'));
-      });
-
-   });
-
-   it("external script splits package", function(){
-      jsPacker.apply({
-         data: {
-            root: 'test/fixture/js-common',
-            packages: 'packer/js',
-            files: 'index-inline-external.html',
-            output: 'out'
-         }
-      });
-
-      assert.equal(true, fs.existsSync('./out/packer/js'));
-      assert.equal(true, fs.existsSync('./out/index-inline-external.html'));
-      assert.equal(2, fs.readdirSync('./out/packer/js').length);
-   });
-
 
    afterEach(function(){
       mfs.umount();
