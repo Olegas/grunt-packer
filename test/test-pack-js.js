@@ -167,7 +167,7 @@ describe("JS packer", function(){
                data: {
                   root: 'test/fixture/non-js-scripts',
                   packages: 'packer/js',
-                  files: 'index.html',
+                  htmls: 'index.html',
                   output: 'out'
                }
             });
@@ -181,7 +181,7 @@ describe("JS packer", function(){
                data: {
                   root: 'test/fixture/non-js-scripts',
                   packages: 'packer/js',
-                  files: 'index2.html',
+                  htmls: 'index2.html',
                   output: 'out'
                }
             });
@@ -197,7 +197,7 @@ describe("JS packer", function(){
             data: {
                root: 'test/fixture/js-common',
                packages: 'packer/js',
-               files: 'index-use-skip.html',
+               htmls: 'index-use-skip.html',
                output: 'out'
             }
          });
@@ -215,7 +215,7 @@ describe("JS packer", function(){
             data: {
                root: 'test/fixture/js-common',
                packages: 'packer/js',
-               files: 'index-package-break.html',
+               htmls: 'index-package-break.html',
                output: 'out'
             }
          });
@@ -232,7 +232,7 @@ describe("JS packer", function(){
                data: {
                   root: 'test/fixture/js-common',
                   packages: 'packer/js',
-                  files: 'index-use-names.html',
+                  htmls: 'index-use-names.html',
                   output: 'out'
                }
             });
@@ -247,7 +247,7 @@ describe("JS packer", function(){
                data: {
                   root: 'test/fixture/js-common',
                   packages: 'packer/js',
-                  files: 'index-use-names-split.html',
+                  htmls: 'index-use-names-split.html',
                   output: 'out'
                }
             });
@@ -265,7 +265,7 @@ describe("JS packer", function(){
          data: {
             root: 'test/fixture/js-common',
             packages: 'packer/js',
-            files: 'index.html',
+            htmls: 'index.html',
             output: 'out'
          }
       });
