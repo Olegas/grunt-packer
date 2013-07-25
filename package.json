@@ -1,7 +1,7 @@
 {
    "name": "grunt-packer",
    "description": "Grunt plugin to automagically concat JS and CSS files found in HTML",
-   "version": "0.1.5",
+   "version": "0.1.6",
    "author": "Oleg Elifantiev <oleg@elifantiev.ru>",
    "contributors": [],
    "main": "Gruntfile.js",
@@ -13,7 +13,7 @@
       "type": "git"
    },
    "dependencies": {
-      "xmldom": "0.1.16",
+      "xmldom": "https://github.com/Olegas/xmldom/tarball/master",
       "grunt": "0.4.x"
    },
    "devDependencies": {
