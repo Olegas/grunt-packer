@@ -6,12 +6,13 @@
    "contributors": [],
    "main": "Gruntfile.js",
    "keywords": [
-
+     "gruntplugin"
    ],
    "repository": {
       "url": "https://github.com/Olegas/grunt-packer.git",
       "type": "git"
    },
+   "bugs": "https://github.com/Olegas/grunt-packer/issues/",
    "dependencies": {
       "xmldom": "https://github.com/Olegas/xmldom/tarball/master",
       "grunt": "0.4.x"
