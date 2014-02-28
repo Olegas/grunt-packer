@@ -1,3 +1,7 @@
+var cssTask = require('./lib/pack-css-task');
+
 module.exports = {
-   packCSS: require('./lib/pack-css-task').nativePackCSS
+   packCSS: cssTask.nativePackCSS,
+   resolveUrl: cssTask.resolveUrl,
+   bumpImportsUp: cssTask.bumpImportsUp
 };
