@@ -6,12 +6,13 @@
    "contributors": [],
    "main": "index.js",
    "keywords": [
-
+     "gruntplugin"
    ],
    "repository": {
       "url": "https://github.com/Olegas/grunt-packer.git",
       "type": "git"
    },
+   "bugs": "https://github.com/Olegas/grunt-packer/issues/",
    "dependencies": {
       "tensor-xmldom": "0.1.18",
       "grunt": "0.4.x",
